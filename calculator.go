@@ -42,3 +42,58 @@ func Sqrt(a float64) (float64, error) {
 	}
 	return math.Sqrt(a), nil
 }
+
+// AddMultiple takes a variable number
+// of parameters and adds them
+
+func AddMultiple(a ...float64) (float64, error) {
+	if len(a) == 0 {
+		return 0, nil
+	}
+	multipleAdd := a[0]
+	for _, numb := range a[1:] {
+		multipleAdd += numb
+	}
+	return multipleAdd, nil
+}
+
+// DivideMultiple takes a variable number
+// of parameters and adds them
+
+func DivideMultiple(a ...float64) (float64, error) {
+	if len(a) == 0 {
+		return 0, nil
+	}
+	var multipleDivide float64
+	multipleDivide = a[0]
+	for _, numb := range a[1:] {
+		if numb == 0 {
+			return 0, errors.New("divide by zero not allowed")
+		}
+		multipleDivide /= numb
+	}
+	//for i, numb := range a {
+	//	if i == 0 {
+	//		multipleDivide = numb
+	//	}
+	//	if i > 0 {
+	//		multipleDivide /= numb
+	//	}
+	//
+	//}
+	return multipleDivide, nil
+}
+
+// DivideMultiple takes a variable number
+// of parameters and adds them
+
+func MultiplyMultiple(a ...float64) (float64, error) {
+	if len(a) == 0 {
+		return 0, nil
+	}
+	multipleMultiply := a[0]
+	for _, numb := range a[1:] {
+		multipleMultiply *= numb
+	}
+	return multipleMultiply, nil
+}
